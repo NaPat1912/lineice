@@ -12,7 +12,7 @@ if (!is_null($events['events'])) {
 		// Reply only when message sent is in 'text' format
 		if ($event['message']['text'] == 'สวัสดี'||$event['message']['text'] == 'หวัดดี'||$event['message']['text'] == 'ดีจ้า') {
 			// Get text sent
-			$text = "สวัสดีจ้^_^ \nยินดีต้อนรับสู่สาขาวิชาวิศวกรรมสารสนเทศและการสื่อสาร \nมีข้อสงสัยอะไรถามได้นะ:-)";
+			$text = "สวัสดีจ้า^_^ \nยินดีต้อนรับสู่สาขาวิชาวิศวกรรมสารสนเทศและการสื่อสาร \nมีข้อสงสัยอะไรถามได้นะ:-)";
 			// Get replyToken
 			$replyToken = $event['replyToken'];
 
