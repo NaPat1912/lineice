@@ -131,9 +131,8 @@ if (!is_null($events['events'])) {
 			echo $result . "\r\n";
 		}else if ($event['message']['text'] == 'อยากรู้') {
 			// Get text sent
-			$text = array("type": "video",
-    				      "originalContentUrl": "https://example.com/original.mp4",
-                                      "previewImageUrl": "https://example.com/preview.jpg");
+			$text = "สาขาวิชาวิศวกรรมสารสนเทศและการสื่อสาร \nเป็นหลักสูตรวิศวกรรมศาสตร์บัณฑิต(วศ.บ.)\n ที่รวมความรู้ด้านวิศวกรรมโทรคมนาคม, วิศวกรรมคอมพิวเตอร์และเทคโนโลยีสารสนเทศเข้าไว้ด้วยกัน
+			\nได้เปิดรับนักศึกษาตั้งแต่ปีการศึกษา 2554";
 			// Get replyToken
 			$replyToken = $event['replyToken'];
 			// Build message to reply back
