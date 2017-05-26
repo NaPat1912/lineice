@@ -131,8 +131,7 @@ if (!is_null($events['events'])) {
 			echo $result . "\r\n";
 		}else if ($event['message']['text'] == 'อยากรู้') {
 			// Get text sent
-			$text = "สาขาวิชาวิศวกรรมสารสนเทศและการสื่อสาร \nเป็นหลักสูตรวิศวกรรมศาสตร์บัณฑิต(วศ.บ.)\n ที่รวมความรู้ด้านวิศวกรรมโทรคมนาคม, วิศวกรรมคอมพิวเตอร์และเทคโนโลยีสารสนเทศเข้าไว้ด้วยกัน
-			\nได้เปิดรับนักศึกษาตั้งแต่ปีการศึกษา 2554";
+			$text = "สาขาวิชาวิศวกรรมสารสนเทศและการสื่อสาร \nเป็นหลักสูตรวิศวกรรมศาสตร์บัณฑิต(วศ.บ.)\n ที่รวมความรู้ด้านวิศวกรรมโทรคมนาคม, วิศวกรรมคอมพิวเตอร์และเทคโนโลยีสารสนเทศเข้าไว้ด้วยกัน\nได้เปิดรับนักศึกษาตั้งแต่ปีการศึกษา 2554";
 			// Get replyToken
 			$replyToken = $event['replyToken'];
 			// Build message to reply back
@@ -156,6 +155,37 @@ if (!is_null($events['events'])) {
 			curl_setopt($ch, CURLOPT_FOLLOWLOCATION, 1);
 			$result = curl_exec($ch);
 			curl_close($ch);
+			echo $result . "\r\n";
+		}else if ($event['message']['text'] == 'อาจารย์') {
+			// Get text sent
+			$text = "อาจารย์ในสาขาประกอบด้วย\nผศ.ดร.ปาณิศา แก้วสวัสดิ์ (ประธานสาขา)\nดร.ธนวุฒิ ต้นติโสภารักษ์\nอ.กฤษณ์ ไชยวงศ์\nอ.กิตติพงศ์ นวลใย\nอ.วรรณวิศา วัฒนสินธุ์";
+			// Get replyToken
+			$replyToken = $event['replyToken'];
+
+			// Build message to reply back
+			$messages = [
+				'type' => 'text',
+				'text' => $text
+			];
+
+			// Make a POST Request to Messaging API to reply to sender
+			$url = 'https://api.line.me/v2/bot/message/reply';
+			$data = [
+				'replyToken' => $replyToken,
+				'messages' => [$messages],
+			];
+			$post = json_encode($data);
+			$headers = array('Content-Type: application/json', 'Authorization: Bearer ' . $access_token);
+
+			$ch = curl_init($url);
+			curl_setopt($ch, CURLOPT_CUSTOMREQUEST, "POST");
+			curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+			curl_setopt($ch, CURLOPT_POSTFIELDS, $post);
+			curl_setopt($ch, CURLOPT_HTTPHEADER, $headers);
+			curl_setopt($ch, CURLOPT_FOLLOWLOCATION, 1);
+			$result = curl_exec($ch);
+			curl_close($ch);
+
 			echo $result . "\r\n";
 		}
 	}
