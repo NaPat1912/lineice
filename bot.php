@@ -10,7 +10,7 @@ if (!is_null($events['events'])) {
 	// Loop through each event
 	foreach ($events['events'] as $event) {
 		// Reply only when message sent is in 'text' format
-		if ($event['message']['text'] == 'สวัสดี'||) {
+		if ($event['message']['text'] == 'สวัสดี'||$event['message']['text'] == 'หวัดดี'||$event['message']['text'] == 'ดีจ้า') {
 			// Get text sent
 			$text = "สวัสดีจ้^_^ \nยินดีต้อนรับสู่สาขาวิชาวิศวกรรมสารสนเทศและการสื่อสาร \nมีข้อสงสัยอะไรถามได้นะ";
 			// Get replyToken
