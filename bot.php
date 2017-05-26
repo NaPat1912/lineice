@@ -42,7 +42,7 @@ if (!is_null($events['events'])) {
 
 			echo $result . "\r\n";
 		}
-	}else if($event['message']['type'] == 'sticker') 
+	else if($event['message']['type'] == 'sticker') 
 		{
 			$text = array(
  			'type' => 'sticker',
@@ -68,5 +68,6 @@ if (!is_null($events['events'])) {
 			curl_close($ch);
 			;echo $result . "\r\n";
 		}
+	}
 }
 echo "OK";
